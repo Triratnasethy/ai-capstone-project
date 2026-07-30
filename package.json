@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.22.2"
+    "@hookform/resolvers": "^5.5.7",
+    "express": "^4.22.2",
+    "react-hook-form": "^7.83.0",
+    "zod": "^4.4.3"
   }
 }
