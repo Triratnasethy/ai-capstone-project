@@ -39,3 +39,7 @@ Use Cursor AI to:
 - Review code
 
 - Improve documentation
+
+## Design Identity
+**Fonts:** Outfit (Headings), Inter (Body). **Palette:** BG `#F8FAFC`, Text `#0F172A`, Accent `#3B82F6`. 
+**Mood:** Clean, highly professional, and minimalist—allowing the work to be the loudest thing on the page.
