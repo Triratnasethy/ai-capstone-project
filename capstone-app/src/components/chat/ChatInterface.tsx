@@ -60,7 +60,7 @@ export function ChatInterface() {
     if (isAutoScrollEnabled) {
       messagesEndRef.current?.scrollIntoView({ behavior: 'instant' });
     }
-  }, [messages, status, isAutoScrollEnabled]);
+  }, [messages, isLoading, isAutoScrollEnabled]);
 
   const handleScroll = () => {
     if (!scrollContainerRef.current) return;
