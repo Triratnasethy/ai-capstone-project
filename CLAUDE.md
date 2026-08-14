@@ -43,3 +43,10 @@ Use Cursor AI to:
 ## Design Identity
 **Fonts:** Outfit (Headings), Inter (Body). **Palette:** BG `#F8FAFC`, Text `#0F172A`, Accent `#3B82F6`. 
 **Mood:** Clean, highly professional, and minimalist—allowing the work to be the loudest thing on the page.
+
+## Project Assets (Week 4 Context)
+To maintain context across all builds, refer to the following project documents:
+- **Identity Kit:** See `IDENTITY_KIT.md` for full brand guidelines.
+- **Content Map:** See `CONTENT_MAP.md` for page structure and CTAs.
+- **Image Curation:** See `IMAGE_CURATION.md` for required assets.
+- **Case Studies / Notes:** See `NOTES.md` for accessibility analysis and component deep-dives.
