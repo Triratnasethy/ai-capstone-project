@@ -1,31 +1,34 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useChat } from 'ai/react';
+import { useChat, Message } from 'ai/react';
 import ReactMarkdown from 'react-markdown';
 import { Send, Square, ArrowDown, Bot, User } from 'lucide-react';
 
 export function ChatInterface() {
-  // Load initial messages from localStorage if available (Stretch Goal: Persistence)
-  const [initialMessages, setInitialMessages] = useState([]);
+  const [initialMessages] = useState<Message[]>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('chat_messages');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch {
+          // ignore parse errors
+        }
+      }
+    }
+    return [];
+  });
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('chat_messages');
-    if (saved) {
-      try {
-        setInitialMessages(JSON.parse(saved));
-      } catch (e) {
-        console.error('Failed to parse local messages');
-      }
-    }
     setIsMounted(true);
   }, []);
 
   const { messages, input, handleInputChange, handleSubmit, stop, status } = useChat({
     api: '/api/chat',
     initialMessages: initialMessages,
-    onFinish: (message) => {
+    onFinish: () => {
       // Save to localStorage when generation finishes
       // We need to wait for the next render to grab all messages, 
       // but useChat doesn't pass the full list to onFinish.
