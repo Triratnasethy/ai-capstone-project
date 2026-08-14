@@ -11,14 +11,14 @@ export async function POST(req: Request) {
     const { messages } = await req.json();
 
     // Call the Anthropic API through the Vercel AI SDK
-    const result = streamText({
+    const result = await streamText({
       model: CHAT_MODEL,
       system: SYSTEM_PROMPT,
       messages,
     });
 
     // Return the streaming response back to the client
-    return result.toTextStreamResponse();
+    return result.toDataStreamResponse();
   } catch (error) {
     console.error('Chat API Error:', error);
     return new Response(

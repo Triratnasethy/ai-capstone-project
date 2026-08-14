@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useChat, Message } from '@ai-sdk/react';
+import { useChat, Message } from 'ai/react';
 import ReactMarkdown from 'react-markdown';
 import { Send, Square, ArrowDown, Bot, User } from 'lucide-react';
 
@@ -22,10 +22,11 @@ export function ChatInterface() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
 
-  const { messages, input, handleInputChange, handleSubmit, stop, status } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, stop, isLoading } = useChat({
     api: '/api/chat',
     initialMessages: initialMessages,
     onFinish: () => {
@@ -79,7 +80,7 @@ export function ChatInterface() {
 
   if (!isMounted) return null; // Prevent hydration mismatch on localStorage
 
-  const isStreaming = status === 'streaming' || status === 'submitted';
+  const isStreaming = isLoading;
 
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)] max-w-3xl mx-auto bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative">
@@ -115,7 +116,7 @@ export function ChatInterface() {
             <p>Send a message to start the conversation.</p>
           </div>
         ) : (
-          messages.map((m: Message) => (
+          messages.map((m) => (
             <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`flex max-w-[85%] ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'} gap-3`}>
                 <div className="shrink-0 mt-1">
@@ -146,7 +147,7 @@ export function ChatInterface() {
         )}
         
         {/* Thinking Indicator */}
-        {status === 'submitted' && (
+        {isLoading && messages[messages.length - 1]?.role === 'user' && (
           <div className="flex justify-start">
             <div className="flex gap-3 max-w-[85%]">
               <div className="shrink-0 mt-1">
