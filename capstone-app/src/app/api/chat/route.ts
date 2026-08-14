@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     });
 
     // Return the streaming response back to the client
-    return result.toDataStreamResponse();
+    return result.toTextStreamResponse();
   } catch (error) {
     console.error('Chat API Error:', error);
     return new Response(

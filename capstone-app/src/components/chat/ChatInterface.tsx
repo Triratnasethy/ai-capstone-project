@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useChat, Message } from 'ai/react';
+import { useChat, Message } from '@ai-sdk/react';
 import ReactMarkdown from 'react-markdown';
 import { Send, Square, ArrowDown, Bot, User } from 'lucide-react';
 
@@ -115,7 +115,7 @@ export function ChatInterface() {
             <p>Send a message to start the conversation.</p>
           </div>
         ) : (
-          messages.map((m) => (
+          messages.map((m: Message) => (
             <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`flex max-w-[85%] ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'} gap-3`}>
                 <div className="shrink-0 mt-1">
