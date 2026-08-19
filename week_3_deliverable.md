@@ -31,21 +31,20 @@ Here is the complete package for your portfolio foundation, mapped exactly to th
 ## 3. The Identity Kit
 
 * **Fonts:**
-  * **Heading:** `Outfit` (Free Google Font)
-  * **Body:** `Inter` (Free Google Font)
+  * **Heading & Body:** `Inter` (Free Google Font)
 * **Palette:**
-  * **Background (Dark):** `#020617` (Slate 950)
-  * **Text (Near-White):** `#E2E8F0` (Slate 200)
-  * **Accent (Primary):** `#2563EB` (Blue 600)
-* **Logo/Favicon:** A minimalist typographic monogram "**TS**" in a glowing blue gradient tile.
+  * **Background (Warm White):** `#FAFAFA`
+  * **Text (Near-Black):** `#171717`
+  * **Accent (Primary):** `#0F766E` (Muted Teal)
+* **Logo/Favicon:** A minimalist text logo "**Triratna Sethy**" in standard text color.
 * **Two-Line Style Note:**
-  > **Design Rules:** Use Outfit for headings and Inter for body text. The palette is an ultra-premium dark mode: Slate 950 background (`#020617`), Slate 200 text (`#E2E8F0`), and Blue 600 accent (`#2563EB`). The mood must remain clean, highly professional, dark, and glassmorphic so the work is the loudest thing on the page.
+  > **Design Rules:** Use the Inter font for everything. The palette is a quiet, minimalist frame: `#FAFAFA` background, `#171717` text, and `#0F766E` accent. The layout must rely entirely on generous whitespace and typography, completely avoiding dark mode, glassmorphism, or generated background images, so the user's actual work remains the loudest thing on the page.
 
 ---
 
 ## 4. Kill Your Darlings: Image Curation
 
-**Accepted Image:** The subtle, dark abstract texture used in the hero section via a CSS mix-blend. It provides depth without drawing attention to itself.
+**Accepted Image:** No background textures or generated hero images are accepted. The frame remains completely blank (whitespace) so that real screenshots of the case studies can stand out.
 
 **Rejected Image Note:** 
-> *I rejected the generated "3D glass spheres" hero image. It looked exactly like generic "AI slop" and pulled the eye away from my core claim. A clean, dark gradient with a subtle texture frames the work infinitely better than a flashy generated graphic.*
+> *I rejected the generated dark-mode abstract hero texture. Even though it looked "premium", it violated the core rule of a portfolio: the design was competing with the work. A completely clean, white background with stark typography frames the case studies infinitely better than any flashy background.*

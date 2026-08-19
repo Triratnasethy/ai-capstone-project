@@ -5,19 +5,19 @@ This document defines the minimal, intentional visual framing for the portfolio.
 ---
 
 ### 1. Typography
-*   **Heading Font:** **Outfit** (Sans-serif, geometric, slightly playful but highly legible). Used for h1-h6 tags and primary Call to Action buttons.
-*   **Body Font:** **Inter** (Sans-serif, neutral, highly optimized for screens). Used for all paragraphs, UI labels, and long-form reading.
+*   **Heading Font:** **Inter** (Sans-serif, neutral, highly optimized for screens). Used at Bold weight for high readability.
+*   **Body Font:** **Inter** (Sans-serif). Used at Regular/Light weights.
 
 ### 2. Color Palette
-A tight 3-color palette designed to feel incredibly premium and modern via a dark glassmorphism aesthetic.
+A highly restricted 3-color palette designed to create a quiet, confident frame for the work.
 
-*   **Background (Dark):** `#020617` (Slate 950 - a deep, infinite dark space).
-*   **Text (Near-White):** `#E2E8F0` (Slate 200 - a highly readable, soft white for text).
-*   **Accent (Primary):** `#2563EB` (Blue 600 - an energetic blue that glows against the dark background).
+*   **Background (Warm White):** `#FAFAFA` (A very soft, warm off-white that reduces eye strain).
+*   **Text (Near-Black):** `#171717` (A crisp, neutral dark gray for maximum contrast without harshness).
+*   **Accent (Primary):** `#0F766E` (Muted Teal - a calm, mature accent used exclusively for interactive elements).
 
 ### 3. Logo / Monogram
-The "logo" is a highly minimalist typographic monogram: **TS** (Triratna Sethy).
-*   **Style:** Set in `Outfit ExtraBold`, using a gradient (`from-blue-500 to-indigo-600`), inside a small glassmorphic tile.
+The "logo" is a highly minimalist typographic monogram: **Triratna Sethy**.
+*   **Style:** Set in `Inter SemiBold`, using the Text color (`#171717`). No gradients, no icons, no graphics.
 
 ### 4. Two-Line Style Note (For AI Workspace)
-> **Design Rules:** Use Outfit for headings and Inter for body text. The palette is an ultra-premium dark mode: Slate 950 background (`#020617`), Slate 200 text (`#E2E8F0`), and Blue 600 accent (`#2563EB`). The mood must remain clean, highly professional, dark, and glassmorphic so the work is the loudest thing on the page.
+> **Design Rules:** Use the Inter font for everything. The palette is a quiet, minimalist frame: `#FAFAFA` background, `#171717` text, and `#0F766E` accent. The layout must rely entirely on generous whitespace and typography, completely avoiding dark mode, glassmorphism, or generated background images, so the user's actual work remains the loudest thing on the page.
