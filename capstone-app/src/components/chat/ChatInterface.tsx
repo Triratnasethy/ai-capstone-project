@@ -26,7 +26,7 @@ export function ChatInterface() {
     setIsMounted(true);
   }, []);
 
-  const { messages, input, handleInputChange, handleSubmit, stop, isLoading } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, stop, isLoading, error, reload, append } = useChat({
     api: '/api/chat',
     initialMessages: initialMessages,
     onFinish: () => {
@@ -83,7 +83,7 @@ export function ChatInterface() {
   const isStreaming = isLoading;
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)] max-w-3xl mx-auto bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative">
+    <div className="flex flex-col h-[calc(100dvh-8rem)] max-w-3xl mx-auto bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative">
       
       {/* Header */}
       <div className="px-6 py-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
@@ -108,12 +108,28 @@ export function ChatInterface() {
       <div 
         ref={scrollContainerRef}
         onScroll={handleScroll}
-        className="flex-1 overflow-y-auto p-6 space-y-6"
+        className="flex-1 overflow-y-auto overscroll-contain p-6 space-y-6"
       >
         {messages.length === 0 ? (
-          <div className="h-full flex flex-col items-center justify-center text-slate-400 space-y-4">
-            <Bot className="w-12 h-12 opacity-20" />
-            <p>Send a message to start the conversation.</p>
+          <div className="h-full flex flex-col items-center justify-center text-slate-500 space-y-6 max-w-md mx-auto">
+            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-2">
+              <Bot className="w-8 h-8 text-blue-500 opacity-80" />
+            </div>
+            <p className="text-center">Hi! I'm your AI assistant. How can I help you today?</p>
+            <div className="grid grid-cols-1 gap-3 w-full mt-4">
+              <button 
+                onClick={() => append({ role: 'user', content: 'Get me the stats for the dashboard project' })}
+                className="text-left px-4 py-3 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-blue-300 transition-colors shadow-sm text-sm text-slate-700 font-medium"
+              >
+                "Get me the stats for the dashboard project"
+              </button>
+              <button 
+                onClick={() => append({ role: 'user', content: 'What is this portfolio built with?' })}
+                className="text-left px-4 py-3 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-blue-300 transition-colors shadow-sm text-sm text-slate-700 font-medium"
+              >
+                "What is this portfolio built with?"
+              </button>
+            </div>
           </div>
         ) : (
           messages.map((m) => (
@@ -226,6 +242,29 @@ export function ChatInterface() {
             </div>
           </div>
         )}
+        
+        {/* Chat Error State */}
+        {error && (
+          <div className="flex justify-center mt-4 mb-4 transition-all duration-300 ease-in-out opacity-100">
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 max-w-sm w-full text-center shadow-sm">
+              <div className="text-red-800 font-semibold mb-2 flex items-center justify-center gap-2">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                Network Error
+              </div>
+              <p className="text-red-600 text-sm mb-4">
+                The connection was interrupted while generating a response.
+              </p>
+              <button
+                onClick={() => reload()}
+                disabled={isLoading}
+                className="w-full py-2 bg-white border border-red-200 text-red-700 rounded-lg text-sm font-medium hover:bg-red-50 disabled:opacity-50 transition-colors"
+              >
+                Retry last message
+              </button>
+            </div>
+          </div>
+        )}
+        
         <div ref={messagesEndRef} />
       </div>
 
