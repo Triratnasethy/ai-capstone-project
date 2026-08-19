@@ -1,31 +1,23 @@
-# Identity Kit
+# Identity Kit & Brand Guidelines (Week 3 Assignment 1)
 
-**Designer:** Triratna Sethy
-**Project:** Professional Portfolio
+This document defines the minimal, intentional visual framing for the portfolio. The goal is to ensure the work is the loudest thing on the page, supported by highly readable typography and a calm palette.
 
 ---
 
-## Typography
-* **Heading Font:** [Outfit](https://fonts.google.com/specimen/Outfit) (Geometric, modern, assertive)
-* **Body Font:** [Inter](https://fonts.google.com/specimen/Inter) (Highly legible, sleek, professional)
+### 1. Typography
+*   **Heading Font:** **Outfit** (Sans-serif, geometric, slightly playful but highly legible). Used for h1-h6 tags and primary Call to Action buttons.
+*   **Body Font:** **Inter** (Sans-serif, neutral, highly optimized for screens). Used for all paragraphs, UI labels, and long-form reading.
 
-## Color Palette
-* **Background:** `#F8FAFC` (Slate 50 - a very soft, cool off-white)
-* **Text:** `#0F172A` (Slate 900 - a deep, readable near-black)
-* **Accent:** `#3B82F6` (Blue 500 - vibrant tech blue for emphasis/links)
-* **Muted/Borders:** `#94A3B8` (Slate 400)
+### 2. Color Palette
+A tight 3-color palette designed to feel incredibly clean and professional without relying on stark `#FFFFFF` and `#000000`.
 
-## Logo / Favicon
-A sleek, minimalist "TS" monogram that aligns with the color palette. 
+*   **Background (Near-White):** `#F8FAFC` (Slate 50 - a very soft, cool off-white that reduces eye strain).
+*   **Text (Near-Black):** `#0F172A` (Slate 900 - a deep, rich navy/slate that feels softer and more modern than pure black).
+*   **Accent (Primary):** `#3B82F6` (Blue 500 - a vibrant, energetic blue used exclusively for links and the primary CTA).
 
-*(If you are copying this to a forum that supports raw HTML/Markdown, here is the SVG code for the logo)*:
-```html
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="120" height="120">
-  <rect width="512" height="512" rx="128" fill="#3B82F6" />
-  <text x="50%" y="53%" font-family="Inter, sans-serif" font-weight="bold" font-size="280" fill="#ffffff" text-anchor="middle" dominant-baseline="central" letter-spacing="-10">TS</text>
-</svg>
-```
+### 3. Logo / Monogram
+The "logo" is a highly minimalist typographic monogram: **TS** (Triratna Sethy).
+*   **Style:** Set in `Outfit ExtraBold`, using the Accent color (`#3B82F6`), with extremely tight letter spacing (tracking-tight). No icons, no graphics.
 
-## 2-Line Style Note (Added to Claude.md)
-**Fonts:** Outfit (Headings), Inter (Body). **Palette:** BG `#F8FAFC`, Text `#0F172A`, Accent `#3B82F6`. 
-**Mood:** Clean, highly professional, and minimalist—allowing the work to be the loudest thing on the page.
+### 4. Two-Line Style Note (For Claude Project Instructions)
+> **Design Rules:** Use Outfit for headings and Inter for body text. The palette is Slate 50 background (`#F8FAFC`), Slate 900 text (`#0F172A`), and Blue 500 accent (`#3B82F6`); the mood must remain clean, highly professional, and minimalist so the work is the loudest thing on the page.
