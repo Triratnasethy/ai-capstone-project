@@ -27,10 +27,11 @@ An AI-assisted development capstone that explores modern software engineering pr
 
 | Category        | Tools                      |
 | --------------- | -------------------------- |
-| Runtime         | Node.js, JavaScript (ES6+) |
+| Framework       | Next.js (App Router), React|
+| Styling         | Tailwind CSS v4            |
 | Version Control | Git, GitHub                |
 | Development     | Cursor IDE                 |
-| AI Assistance   | Cursor AI                  |
+| AI Assistance   | Claude, Vercel AI SDK      |
 
 
 ## Installation
@@ -64,26 +65,17 @@ An AI-assisted development capstone that explores modern software engineering pr
 
 ## Project Structure
 
-Current layout:
+This repository acts as a monorepo containing multiple assignments and applications built during the capstone:
 
 ```
 ai-capstone-project/
-├── .gitignore          # Git ignore rules (Node.js, env files, build output)
-├── CLAUDE.md           # AI assistant context and coding conventions
-├── LICENSE             # MIT License
+├── capstone-app/       # Primary Next.js App Router application (Chat, Playground)
+├── movie-explorer/     # React fetching assignment
+├── images/             # Image curation assets
+├── CLAUDE.md           # AI assistant context and design tokens
+├── CONTENT_MAP.md      # Site mapping and CTAs
+├── WORKFLOW_PIPELINE.md# No-Code AI Workflow documentation
 └── README.md           # Project documentation
-```
-
-Planned layout as the capstone evolves:
-
-```
-ai-capstone-project/
-├── src/                # Application source code
-├── tests/              # Unit and integration tests
-├── docs/               # Additional documentation
-├── .env.example        # Environment variable template
-├── package.json        # Node.js dependencies and scripts
-└── ...
 ```
 
 ## Future Enhancements
