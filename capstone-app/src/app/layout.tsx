@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import './globals.css';
-import { Geist } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 
 export default function RootLayout({
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" className={cn(outfit.variable, inter.variable)}>
       <body className="antialiased min-h-screen bg-slate-50 text-slate-900 font-sans">
         <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
           <div className="container mx-auto px-4 h-14 flex items-center justify-between">
