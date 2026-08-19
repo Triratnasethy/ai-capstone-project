@@ -78,6 +78,29 @@ ai-capstone-project/
 └── README.md           # Project documentation
 ```
 
+## AI Server Tools (FE-07)
+
+The application includes a server-side AI tool integrated with the Vercel AI SDK on the `/api/chat` route.
+
+**Tool Name:** `getProjectStats`
+**Description:** Fetches statistics and metadata for a specific portfolio project.
+**Zod Schema:**
+```typescript
+z.object({
+  projectName: z.string().describe('The name of the project to query (e.g. "dashboard", "secret")')
+})
+```
+**Return Shape:**
+```typescript
+{
+  projectName: string;
+  stars: number;
+  commits: number;
+  status: string;
+  lastDeploy: string;
+} // or throws an Error if projectName is "secret"
+```
+
 ## Future Enhancements
 
 - [x] Initialize Node.js project with `package.json` and core dependencies

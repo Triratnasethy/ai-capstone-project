@@ -140,6 +140,69 @@ export function ChatInterface() {
                     {/* Using ReactMarkdown to prevent broken raw markdown mid-stream */}
                     <ReactMarkdown>{m.content}</ReactMarkdown>
                   </div>
+                  
+                  {/* Tool Invocations */}
+                  {m.toolInvocations?.map((toolInvocation: any) => {
+                    const { toolName, toolCallId, state, result } = toolInvocation;
+                    
+                    if (toolName === 'getProjectStats') {
+                      return (
+                        <div key={toolCallId} className="mt-4">
+                          {state === 'partial-call' && (
+                            <div className="flex items-center gap-2 text-sm text-slate-500 animate-pulse bg-slate-100 px-3 py-1.5 rounded-full inline-flex border border-slate-200">
+                              <div className="w-4 h-4 rounded-full border-2 border-slate-300 border-t-slate-500 animate-spin" />
+                              Parsing arguments...
+                            </div>
+                          )}
+                          {state === 'call' && (
+                            <div className="flex items-center gap-2 text-sm text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full inline-flex border border-blue-200">
+                              <div className="w-4 h-4 rounded-full border-2 border-blue-200 border-t-blue-700 animate-spin" />
+                              Fetching project stats...
+                            </div>
+                          )}
+                          {state === 'result' && (
+                            <div className="transition-all duration-300 ease-in-out">
+                              {('error' in toolInvocation || result?.error || !result?.stars) ? (
+                                <div className="border border-red-200 bg-red-50 rounded-xl p-4 mt-2 max-w-sm">
+                                  <div className="text-red-800 font-semibold mb-1 flex items-center gap-2">
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Access Denied
+                                  </div>
+                                  <div className="text-red-600 text-sm">
+                                    You do not have permission to view the secret project's stats.
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="border border-slate-200 bg-white rounded-xl p-5 mt-2 max-w-sm shadow-sm">
+                                  <div className="flex items-center justify-between mb-4">
+                                    <h3 className="font-semibold text-slate-900 capitalize">{result.projectName}</h3>
+                                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-medium">
+                                      {result.status}
+                                    </span>
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-4">
+                                    <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                      <div className="text-slate-500 text-xs mb-1 uppercase tracking-wider">Stars</div>
+                                      <div className="text-xl font-semibold text-slate-900">{result.stars}</div>
+                                    </div>
+                                    <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                      <div className="text-slate-500 text-xs mb-1 uppercase tracking-wider">Commits</div>
+                                      <div className="text-xl font-semibold text-slate-900">{result.commits}</div>
+                                    </div>
+                                  </div>
+                                  <div className="mt-4 text-xs text-slate-500 flex items-center gap-1.5">
+                                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Last deploy: {result.lastDeploy}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
               </div>
             </div>
